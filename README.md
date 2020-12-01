@@ -1,5 +1,21 @@
 # Лабораторная работа №2
 
+| branch | status |
+|--------|--------|
+| Testing |[![Build Status](https://travis-ci.org/MIX-1/-lab02-cache-dda.svg?branch=Testing)](https://travis-ci.com/github/MIX-1/-lab02-cache-dda)|
+
+## Результаты исследования:
+
+![Cache](./images/128kb.png) 
+
+![Cache](./images/1mb.png)
+
+![Cache](./images/2mb.png)
+
+![Cache](./images/4mb.png)
+
+![Cache](./images/12mb.png)
+
 В большинстве современных ПК используется следующая иерархия памяти:
 | Тип | Скорость доступа | Размер |
 | - | - | - |
