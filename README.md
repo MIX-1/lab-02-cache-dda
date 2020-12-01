@@ -2,7 +2,7 @@
 
 | branch | status |
 |--------|--------|
-| Testing |[![Build Status](https://travis-ci.org/MIX-1/-lab02-cache-dda.svg?branch=Testing)](https://travis-ci.com/github/MIX-1/-lab02-cache-dda)|
+| testing |[![Build Status](https://travis-ci.org/MIX-1/lab02-cache-dda.svg?branch=testing)](https://travis-ci.com/github/MIX-1/lab02-cache-dda)|
 
 ## Результаты исследования:
 
