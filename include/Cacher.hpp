@@ -16,9 +16,9 @@ using string = std :: string;
 const int Cache_size[3] = {256, 1024, 8192};
 const int Num_Investigation = 3;
 const int Num_Repeat = 1000;
-const int Num_byte_in_Long_double = 16;
 const int Num_b_in_kb = 1024;
 const int Num_Data_In_Line = 4;
+const double Formul_Num[2] = {2, 1.5};
 
 enum Type {Straight, Reverse, Random};
 
@@ -28,14 +28,19 @@ class Cacher {
 
   void Find_Exp_Size();
 
-  friend std::ostream& operator<<(std::ostream&, const Cacher&);
+  friend std::ostream& operator<< (std::ostream&, const Cacher&);
+
+  void Straight_Experiment(int, const long double[]);
+
+  void Reverse_Experiment(int, const long double[]);
+
+  void Random_Experiment(int, const long double[]);
 
  private:
-    int num_experiment = 0;
-    std::vector<std::vector<int>> duration;
-    std::vector<int> experiment_size;
-    std::vector<string> experiment_size_name;
-    string experiment_type_name[Num_Investigation];
+  int num_experiment = 0;
+  std::vector<std::vector<int>> duration;
+  std::vector<string> experiment_size_name;
+  string experiment_type_name[Num_Investigation];
 };
 
 #endif // INCLUDE_CACHER_HPP_
