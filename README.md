@@ -166,7 +166,7 @@ investigation:
  	- do_experiment:
  		number: 1
  		results:
-		    duration: 20624 nanoseconds
+   			duration: 20624 nanoseconds
  	- do_experiment:
  		number: 2
  		results:
@@ -177,8 +177,8 @@ investigation:
  			duration: 20657 nanoseconds
  	- do_experiment:
  		number: 4
-		results:
- 			duration: 20545 nanoseconds
+        results:
+         	duration: 20545 nanoseconds
  	- do_experiment:
  		number: 5
  		results:
