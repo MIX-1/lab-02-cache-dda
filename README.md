@@ -2,19 +2,8 @@
 
 | branch | status |
 |--------|--------|
-| testing |[![Build Status](https://travis-ci.org/MIX-1/lab02-cache-dda.svg?branch=testing)](https://travis-ci.com/github/MIX-1/lab02-cache-dda)|
+| testing |[![Build Status](https://travis-ci.org/MIX-1/lab-02-cache-dda.svg?branch=testing)](https://travis-ci.com/github/MIX-1/lab02-cache-dda)|
 
-## Результаты исследования:
-
-![Cache](./images/128kb.png) 
-
-![Cache](./images/1mb.png)
-
-![Cache](./images/2mb.png)
-
-![Cache](./images/4mb.png)
-
-![Cache](./images/12mb.png)
 
 В большинстве современных ПК используется следующая иерархия памяти:
 | Тип | Скорость доступа | Размер |
@@ -146,10 +135,7 @@ cache_size['3'] = 8 mb;
 
 Для получения времени обхода от размера массива процедуру прохода необходимо многократно повторить (порядка 1000 раз).
 
-### Результаты
-
-Ниже представлен формат и пример отчета:
-
+## Результаты:
 ```yaml
 investigation:
  	 travel_variant: Straight
@@ -157,69 +143,70 @@ investigation:
  	- do_experiment:
  		number: 1
  		results:
- 			duration: 490 nanoseconds
+ 			duration: 22903 nanoseconds
  	- do_experiment:
  		number: 2
  		results:
- 			duration: 498 nanoseconds
+ 			duration: 21920 nanoseconds
  	- do_experiment:
  		number: 3
  		results:
- 			duration: 503 nanoseconds
+ 			duration: 22013 nanoseconds
  	- do_experiment:
  		number: 4
  		results:
- 			duration: 497 nanoseconds
+ 			duration: 21957 nanoseconds
  	- do_experiment:
  		number: 5
  		results:
- 			duration: 583 nanoseconds
+ 			duration: 21997 nanoseconds
 investigation:
  	 travel_variant: Reverse
  	 experiments:
  	- do_experiment:
  		number: 1
  		results:
-			duration: 486 nanoseconds
+			duration: 20624 nanoseconds
  	- do_experiment:
  		number: 2
  		results:
- 			duration: 500 nanoseconds
+ 			duration: 20557 nanoseconds
  	- do_experiment:
  		number: 3
  		results:
- 			duration: 350 nanoseconds
+ 			duration: 20657 nanoseconds
  	- do_experiment:
  		number: 4
 		results:
- 			duration: 344 nanoseconds
+ 			duration: 20545 nanoseconds
  	- do_experiment:
  		number: 5
  		results:
- 			duration: 347 nanoseconds
+ 			duration: 20529 nanoseconds
 investigation:
  	 travel_variant: Random
  	 experiments:
  	- do_experiment:
  		number: 1
  		results:
- 			duration: 3886 nanoseconds
+ 			duration: 251332 nanoseconds
  	- do_experiment:
  		number: 2
  		results:
- 			duration: 3900 nanoseconds
+ 			duration: 252282 nanoseconds
  	- do_experiment:
  		number: 3
  		results:
- 			duration: 3901 nanoseconds
+ 			duration: 251465 nanoseconds
  	- do_experiment:
  		number: 4
  		results:
- 			duration: 3889 nanoseconds
+ 			duration: 252272 nanoseconds
  	- do_experiment:
  		number: 5
  		results:
- 			duration: 3880 nanoseconds
+ 			duration: 251040 nanoseconds
 ```
+![Cache](./images/L1num.png) 
 
-⚠️ В отчет также необходимо добавить общий график с результатами всех исследований. ⚠️
+![Cache](./images/L1.png) 
