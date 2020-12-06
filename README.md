@@ -173,12 +173,12 @@ investigation:
  			duration: 20557 nanoseconds
  	- do_experiment:
  		number: 3
- 	    results:
- 			duration: 20657 nanoseconds
- 	- do_experiment:
- 		number: 4
-        results:
-         	duration: 20545 nanoseconds
+       		results:
+       			duration: 20657 nanoseconds
+   	- do_experiment:
+       		number: 4
+       		results:
+       			duration: 20545 nanoseconds
  	- do_experiment:
  		number: 5
  		results:
