@@ -6,34 +6,25 @@ void Cacher::Find_Exp_Size() {
   std::vector<int> experiment_size;
   experiment_size.push_back(Cache_size[0] / Formul_Num[0]);
   experiment_size.push_back(Cache_size[2] * Formul_Num[1]);
-  int size = static_cast<int>(pow(2,0) * Num_b_in_kb);
+  int size = static_cast<int>(pow(2, 0) * Num_b_in_kb);
   for (int i = 1; size < Cache_size[2]; ++i){
     experiment_size.insert(experiment_size.begin()+i, size);
     size = static_cast<int>(pow(2, i) * Num_b_in_kb);
   }
   num_experiment = experiment_size.size();
-  for (int i = 0; i < num_experiment; ++i) {
-    std::ostringstream stream;
-    if (experiment_size[i] < Num_b_in_kb) {
-      stream << experiment_size[i];
-      experiment_size_name.push_back(stream.str() + " kb");
-    } else {
-      stream << experiment_size[i]/Num_b_in_kb;
-      experiment_size_name.push_back(stream.str() + " mb");
-    }
-  }
+  l1_experiment_size = Cache_size[0] * Num_b_in_kb / Num_byte_in_Long_double;
 }
 
 Cacher::Cacher(std::vector<Type> types) {
   Find_Exp_Size();
   duration.resize(Num_Investigation);
-  auto arr = new long double[Cache_size[0]];
+  auto arr = new long double[l1_experiment_size];
   long double k = 0;
-  for (int i = 0; i < Cache_size[0]; i += Num_Data_In_Line){
+  for (int i = 0; i < l1_experiment_size; i += Num_Data_In_Line){
     arr[i] = random();
   }
   // Warming
-  for (int i = 0; i < Cache_size[0]; i += Num_Data_In_Line){
+  for (int i = 0; i < l1_experiment_size; i += Num_Data_In_Line){
     k += arr[i];
   }
   for (int t = 0; t < 3; ++t){
@@ -74,9 +65,9 @@ void Cacher::Straight_Experiment(int t,  const long double arr[]) {
     std::chrono::system_clock::time_point start =
         std::chrono::high_resolution_clock::now();
     for (int i = 0;
-         i < Cache_size[0] * Num_Repeat;
+         i < l1_experiment_size * Num_Repeat;
          i += Num_Data_In_Line) {
-      k += arr[i % Cache_size[0]];
+      k += arr[i % l1_experiment_size];
     }
     std::chrono::system_clock::time_point end =
         std::chrono::high_resolution_clock::now();
@@ -92,10 +83,10 @@ void Cacher::Reverse_Experiment(int t, const long double arr[]) {
     // Experiment
     std::chrono::system_clock::time_point start =
         std::chrono::high_resolution_clock::now();
-    for (int i = Cache_size[0] * Num_Repeat;
-         i > 0 ;
+    for (int i = l1_experiment_size * Num_Repeat;
+         i > 0;
          i -= Num_Data_In_Line) {
-      k += arr[i % Cache_size[0]];
+      k += arr[i % l1_experiment_size];
     }
     std::chrono::system_clock::time_point end =
         std::chrono::high_resolution_clock::now();
@@ -114,13 +105,13 @@ void Cacher::Random_Experiment(int t, const long double arr[]) {
     std::chrono::system_clock::time_point start =
         std::chrono::high_resolution_clock::now();
     for (int i = 0;
-         i < Cache_size[0] * Num_Repeat;
+         i < l1_experiment_size * Num_Repeat;
          i += Num_Data_In_Line){
-      n = random() % Cache_size[0];
+      n = random() % l1_experiment_size;
       while (used_num.find(n) != used_num.end()) {
         break;
       }
-      k += arr[n % Cache_size[0]];
+      k += arr[n % l1_experiment_size];
     }
     std::chrono::system_clock::time_point end =
         std::chrono::high_resolution_clock::now();

@@ -151,24 +151,75 @@ cache_size['3'] = 8 mb;
 Ниже представлен формат и пример отчета:
 
 ```yaml
-investigation:                                       |  investigaion:
-  travel_variant: <вариант_прохода>                  |    travel_order: "direction"
-  experiments:                                       |    experiments:
-  - experiment:                                      |    - experiment:
-      number:                                        |        number: 1
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "1mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "1ns"
-  - experiment:                                      |    - experiment:
-      number: <номер_эксперимента>                   |        number: 2
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "2mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "2ns"
-                                                     |
-investigation:                                       |  investigation:
-...                                                  |  ...
+investigation:
+ 	 travel_variant: Straight
+ 	 experiments:
+ 	- do_experiment:
+ 		number: 1
+ 		results:
+ 			duration: 490 nanoseconds
+ 	- do_experiment:
+ 		number: 2
+ 		results:
+ 			duration: 498 nanoseconds
+ 	- do_experiment:
+ 		number: 3
+ 		results:
+ 			duration: 503 nanoseconds
+ 	- do_experiment:
+ 		number: 4
+ 		results:
+ 			duration: 497 nanoseconds
+ 	- do_experiment:
+ 		number: 5
+ 		results:
+ 			duration: 583 nanoseconds
+investigation:
+ 	 travel_variant: Reverse
+ 	 experiments:
+ 	- do_experiment:
+ 		number: 1
+ 		results:
+			duration: 486 nanoseconds
+ 	- do_experiment:
+ 		number: 2
+ 		results:
+ 			duration: 500 nanoseconds
+ 	- do_experiment:
+ 		number: 3
+ 		results:
+ 			duration: 350 nanoseconds
+ 	- do_experiment:
+ 		number: 4
+		results:
+ 			duration: 344 nanoseconds
+ 	- do_experiment:
+ 		number: 5
+ 		results:
+ 			duration: 347 nanoseconds
+investigation:
+ 	 travel_variant: Random
+ 	 experiments:
+ 	- do_experiment:
+ 		number: 1
+ 		results:
+ 			duration: 3886 nanoseconds
+ 	- do_experiment:
+ 		number: 2
+ 		results:
+ 			duration: 3900 nanoseconds
+ 	- do_experiment:
+ 		number: 3
+ 		results:
+ 			duration: 3901 nanoseconds
+ 	- do_experiment:
+ 		number: 4
+ 		results:
+ 			duration: 3889 nanoseconds
+ 	- do_experiment:
+ 		number: 5
+ 		results:
+ 			duration: 3880 nanoseconds
 ```
 
 ⚠️ В отчет также необходимо добавить общий график с результатами всех исследований. ⚠️
